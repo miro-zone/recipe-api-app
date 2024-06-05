@@ -21,7 +21,7 @@ class Command(BaseCommand):
         while db_up is False:
             max_tries -= 1
             try:
-                if max_tries < 0 :
+                if max_tries < 0:
                     raise TimeoutError("Fail to connect with database.")
                 self.check(databases=['default'])
                 db_up = True
