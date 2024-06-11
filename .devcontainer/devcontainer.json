@@ -1,0 +1,29 @@
+{
+    "name": "Python",
+    "build": {
+      "dockerfile": "Dockerfile",
+      "context": "..",
+      "args": {
+        "DEV": "true"
+      }
+    },
+    "customizations": {
+      "vscode": {
+        "settings": {
+          "terminal.integrated.shell.linux": "/bin/sh",
+          "python.pythonPath": "/py/bin/python",
+          "python.linting.enabled": true,
+          "python.linting.pylintEnabled": true,
+          "python.formatting.autopep8Path": "/py/bin/autopep8",
+          "python.analysis.extraPaths": ["./app"],
+          "python.autoComplete.extraPaths": ["./app"]
+        },
+        "extensions": [
+          "ms-python.python",
+          "ms-python.vscode-pylance"
+        ]
+      }
+    },
+    "remoteUser": "django-user",
+    "postCreateCommand": "pip install -r /tmp/requirements.dev.txt"
+  }
